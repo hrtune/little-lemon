@@ -1,13 +1,18 @@
 const Nav = () => {
+  const links = [
+    { name: "HOME", link: "#" },
+    { name: "ABOUT", link: "#" },
+    { name: "MENU", link: "#" },
+    { name: "RESERVATION", link: "#" },
+    { name: "ORDER ONLINE", link: "#" },
+    { name: "LOGIN", link: "#" },
+  ];
   return (
     <nav>
       <ul>
-        <li>HOME</li>
-        <li>ABOUT</li>
-        <li>MENU</li>
-        <li>RESERVATIONS</li>
-        <li>ORDER ONLINE</li>
-        <li>LOGIN</li>
+        {links.map((l) => (
+          <li key={l.name}>{l.name}</li>
+        ))}
       </ul>
     </nav>
   );
