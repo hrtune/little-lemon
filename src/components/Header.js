@@ -1,8 +1,9 @@
 import Nav from "./Nav";
+import logo from "../assets/logo.svg";
 const Header = () => {
   return (
     <header>
-      <img src="" alt="Little Lemon Logo" />
+      <img src={logo} alt="Little Lemon Logo" />
       <Nav />
     </header>
   );
