@@ -2,19 +2,19 @@ import greekSalad from "../assets/greek_salad.jpg";
 
 const MenuCard = ({ image, title, price, description }) => {
   return (
-    <section>
+    <article>
       <img width="200px" src={image} alt={title} />
       <header>
         <h3>{title}</h3>
         <h4>$ {price}</h4>
       </header>
-      <content>
+      <section>
         <p>{description}</p>
-      </content>
+      </section>
       <footer>
         <p>Order a delivery</p>
       </footer>
-    </section>
+    </article>
   );
 };
 
@@ -34,11 +34,11 @@ const Highlights = () => {
         <h2>This weeks specials!</h2>
         <button>Online Menu</button>
       </header>
-      <content>
+      <section>
         <MenuCard {...menu[0]} />
         <MenuCard {...menu[0]} />
         <MenuCard {...menu[0]} />
-      </content>
+      </section>
     </section>
   );
 };
