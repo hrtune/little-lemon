@@ -1,4 +1,6 @@
 import food from "../assets/food.jpg";
+import ui from "../ui";
+
 const Hero = () => {
   return (
     <section>

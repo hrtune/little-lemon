@@ -1,17 +1,25 @@
 const Nav = () => {
   const links = [
-    { name: "HOME", link: "#" },
-    { name: "ABOUT", link: "#" },
-    { name: "MENU", link: "#" },
-    { name: "RESERVATION", link: "#" },
-    { name: "ORDER ONLINE", link: "#" },
-    { name: "LOGIN", link: "#" },
+    { name: "Home", link: "#" },
+    { name: "About", link: "#" },
+    { name: "Menu", link: "#" },
+    { name: "Reservation", link: "#" },
+    { name: "Order Online", link: "#" },
+    { name: "Login", link: "#" },
   ];
+  const listStyle = {
+    display: "flex",
+    listStyleType: "none",
+    justifyContent: "space-evenly",
+    flexWrap: "wrap",
+  };
   return (
-    <nav>
-      <ul>
+    <nav style={{ flexGrow: "1" }}>
+      <ul style={listStyle}>
         {links.map((l) => (
-          <li key={l.name}>{l.name}</li>
+          <li style={{ fontSize: "16px", margin: "10px 20px" }} key={l.name}>
+            {l.name}
+          </li>
         ))}
       </ul>
     </nav>
