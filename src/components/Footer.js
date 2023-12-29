@@ -1,3 +1,23 @@
+import cardLogo from "../assets/card_logo.jpg";
+import ui from "../ui";
+
+const FooterNav = ({ header, links }) => {
+  return (
+    <section>
+      <header style={{ fontWeight: "bold" }}>{header}</header>
+      <nav>
+        <ul style={{ listStyle: "none", padding: "0" }}>
+          {links.map((obj) => (
+            <li style={{ padding: "5px 0" }} key={obj.name}>
+              {obj.name}
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </section>
+  );
+};
+
 const Footer = () => {
   const doormatLinks = [
     { name: "Home", link: "#" },
@@ -20,37 +40,23 @@ const Footer = () => {
   ];
 
   return (
-    <footer>
-      <img src="" alt="Little Lemon Logo" />
-      <section>
-        <header>Doormat Navigation</header>
-        <nav>
-          <ul>
-            {doormatLinks.map((obj) => (
-              <li key={obj.name}>{obj.name}</li>
-            ))}
-          </ul>
-        </nav>
-      </section>
-      <section>
-        <header>Contact</header>
-        <nav>
-          <ul>
-            {contactLinks.map((obj) => (
-              <li key={obj.name}>{obj.name}</li>
-            ))}
-          </ul>
-        </nav>
-      </section>
-      <section>
-        <header>Social Media Links</header>
-        <nav>
-          <ul>
-            {socialLinks.map((obj) => (
-              <li key={obj.name}>{obj.name}</li>
-            ))}
-          </ul>
-        </nav>
+    <footer style={{ backgroundColor: ui.color.green, padding: "40px 0" }}>
+      <section
+        style={{
+          margin: "0 290px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-start",
+        }}
+      >
+        <img
+          style={{ width: "120px" }}
+          src={cardLogo}
+          alt="Little Lemon Logo"
+        />
+        <FooterNav header="Doormat Navigation" links={doormatLinks} />
+        <FooterNav header="Contact" links={contactLinks} />
+        <FooterNav header="Social Media Links" links={socialLinks} />
       </section>
     </footer>
   );
