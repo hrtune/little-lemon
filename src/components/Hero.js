@@ -1,5 +1,6 @@
 import food from "../assets/food.jpg";
 import ui from "../ui";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const heroStyle = {
@@ -56,7 +57,9 @@ const Hero = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
-            <button style={buttonStyle}>Reserve a Table</button>
+            <Link to="/book-a-table">
+              <button style={buttonStyle}>Reserve a Table</button>
+            </Link>
           </section>
         </section>
         <aside>

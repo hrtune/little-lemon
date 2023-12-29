@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import Headings from "./Headings";
 import Forms from "./Forms";
 
-const BookTablePage = () => {
+const BookingPage = () => {
   return (
     <>
       <Headings />
@@ -14,4 +14,4 @@ const BookTablePage = () => {
   );
 };
 
-export default BookTablePage;
+export default BookingPage;
