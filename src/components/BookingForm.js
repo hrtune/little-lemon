@@ -14,6 +14,8 @@ const reducer = (state, action) => {
 const BookingForm = () => {
   const [data, dispatch] = useReducer(reducer, initialData);
 
+  const availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+
   const formStyle = {
     backgroundColor: "grey",
     height: "500px",
@@ -49,12 +51,9 @@ const BookingForm = () => {
           value={data.time}
           onChange={(e) => dispatch({ name: "time", value: e.target.value })}
         >
-          <option>17:00</option>
-          <option>18:00</option>
-          <option>19:00</option>
-          <option>20:00</option>
-          <option>21:00</option>
-          <option>22:00</option>
+          {availableTimes.map((t) => (
+            <option key={t}>{t}</option>
+          ))}
         </select>
       </section>
       <section>
