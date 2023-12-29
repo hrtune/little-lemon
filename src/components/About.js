@@ -1,10 +1,19 @@
+import ui from "../ui";
+import chef from "../assets/chef.jpg";
+
 const About = () => {
   return (
-    <section>
-      <section>
-        <header>
-          <h2>Little Lemon</h2>
-          <h3>Chicago</h3>
+    <section
+      style={{
+        margin: "0 290px",
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
+      <section style={{ width: "500px" }}>
+        <header style={{ fontFamily: ui.fontFamily.header }}>
+          <h2 style={{ fontSize: ui.fontSize.subTitle }}>Little Lemon</h2>
+          <h3 style={{ fontSize: ui.fontSize.leadText }}>Chicago</h3>
         </header>
         <section>
           <p>
@@ -13,9 +22,8 @@ const About = () => {
           </p>
         </section>
       </section>
-      <aside>
-        <img src="" alt="Image1" />
-        <img src="" alt="Image2" />
+      <aside style={{}}>
+        <img style={{ width: "500px" }} src={chef} alt="Image1" />
       </aside>
     </section>
   );
