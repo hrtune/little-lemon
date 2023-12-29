@@ -59,6 +59,7 @@ const Highlights = () => {
     display: "flex",
     margin: "50px 0 0 0",
     justifyContent: "space-between",
+    flexWrap: "wrap",
   };
 
   return (

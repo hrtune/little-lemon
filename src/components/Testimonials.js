@@ -1,4 +1,5 @@
 import ui from "../ui";
+import reviewer from "../assets/reviewer0.jpg";
 
 const RatingCard = ({ rating, image, name, review }) => {
   const cardStyle = {
@@ -11,7 +12,7 @@ const RatingCard = ({ rating, image, name, review }) => {
         <h3>{rating}</h3>
       </header>
       <section style={{ display: "flex", justifyContent: "space-around" }}>
-        <img src={image} alt={name} />
+        <img style={{ width: "75px" }} src={image} alt={name} />
         <h4>{name}</h4>
       </section>
       <section style={{ margin: "0 10px 20px 20px" }}>
@@ -31,7 +32,7 @@ const Testimonials = () => {
   const ratings = [
     {
       rating: 5,
-      image: "",
+      image: reviewer,
       name: "John",
       review:
         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
@@ -45,6 +46,7 @@ const Testimonials = () => {
   const cardsStyle = {
     display: "flex",
     justifyContent: "space-between",
+    flexWrap: "wrap",
   };
 
   return (
