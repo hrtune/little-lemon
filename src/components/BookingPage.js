@@ -1,13 +1,13 @@
 import About from "./About";
 import Footer from "./Footer";
 import Headings from "./Headings";
-import Forms from "./Forms";
+import BookingForm from "./BookingForm";
 
 const BookingPage = () => {
   return (
     <>
       <Headings />
-      <Forms />
+      <BookingForm />
       <About />
       <Footer />
     </>

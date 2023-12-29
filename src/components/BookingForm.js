@@ -11,7 +11,7 @@ const reducer = (state, action) => {
   newState[action.name] = action.value;
   return newState;
 };
-const Forms = () => {
+const BookingForm = () => {
   const [data, dispatch] = useReducer(reducer, initialData);
 
   const formStyle = {
@@ -89,4 +89,4 @@ const Forms = () => {
   );
 };
 
-export default Forms;
+export default BookingForm;
