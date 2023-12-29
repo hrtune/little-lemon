@@ -18,6 +18,9 @@ const ui = {
     cardTitle: "18px",
     paragraph: "16px",
   },
+  style: {
+    borderRadius: "16px",
+  },
 };
 
 export default ui;
