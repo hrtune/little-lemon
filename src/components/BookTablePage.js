@@ -7,7 +7,6 @@ import Forms from "./Forms";
 const BookTablePage = () => {
   return (
     <>
-      <Header />
       <Headings />
       <Forms />
       <About />
