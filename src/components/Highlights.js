@@ -14,13 +14,14 @@ const MenuCard = ({ image, title, price, description }) => {
     display: "flex",
     justifyContent: "space-between",
   };
+
   return (
     <article style={cardStyle}>
       <img style={{ width: "100%", borderRadius }} src={image} alt={title} />
       <section style={{ margin: "0 20px" }}>
         <header style={headerStyle}>
           <h3 style={{ fontFamily: ui.fontFamily.header }}>{title}</h3>
-          <h4>$ {price}</h4>
+          <h4 style={{ color: ui.color.pink }}>$ {price}</h4>
         </header>
         <section>
           <p style={{ color: ui.color.green }}>{description}</p>
