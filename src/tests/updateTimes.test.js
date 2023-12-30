@@ -1,7 +1,7 @@
 import { updateTimes } from "../components/BookingPage";
 
-test("updateTimes returns the same state", () => {
+test("updateTimes returns an array", async () => {
   const oldState = ["Elon Musk"];
-  const newState = updateTimes(oldState, {});
-  expect(newState).toMatchObject(oldState);
+  const newState = await updateTimes(oldState, { date: "2023-09-20" });
+  expect(typeof newState.length).toBe("number");
 });

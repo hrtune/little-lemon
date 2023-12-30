@@ -10,7 +10,7 @@ export const updateTimes = (state, action) => {
   return fetchAPI(dateAPI(action.date));
 };
 
-export const initializeTime = () => {
+export const initializeTimes = () => {
   return fetchAPI(dateAPI());
 };
 
@@ -19,7 +19,7 @@ const BookingPage = () => {
   const [availableTimesPromise, dispatchTime] = useReducer(
     updateTimes,
     null,
-    initializeTime
+    initializeTimes
   );
 
   const submitForm = async (data) => {
