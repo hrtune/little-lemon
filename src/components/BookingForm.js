@@ -11,10 +11,8 @@ const reducer = (state, action) => {
   newState[action.name] = action.value;
   return newState;
 };
-const BookingForm = () => {
+const BookingForm = ({ availableTimes, dispatchTime }) => {
   const [data, dispatch] = useReducer(reducer, initialData);
-
-  const availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
 
   const formStyle = {
     backgroundColor: "grey",
@@ -28,6 +26,7 @@ const BookingForm = () => {
 
   const submit = (event) => {
     event.preventDefault();
+    dispatchTime({});
     console.log(data);
   };
 
