@@ -20,6 +20,10 @@ const BookingForm = ({ availableTimesPromise, dispatchTime }) => {
     availableTimesPromise.then((times) => setAvailableTimes(times));
   }, [availableTimesPromise]);
 
+  useEffect(() => {
+    dispatch({ name: "time", value: availableTimes[0] });
+  }, [availableTimes]);
+
   const formStyle = {
     backgroundColor: "grey",
     height: "500px",
