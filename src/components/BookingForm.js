@@ -10,10 +10,14 @@ const initialData = {
 const reducer = (state, action) => {
   // action: { name: "", value:"" }
   const newState = { ...state };
-  newState[action.name] = action.value;
+  if (action.name === "date") {
+    newState.date = dateAPI(action.value);
+  } else {
+    newState[action.name] = action.value;
+  }
   return newState;
 };
-const BookingForm = ({ availableTimesPromise, dispatchTime }) => {
+const BookingForm = ({ availableTimesPromise, dispatchTime, submitForm }) => {
   const [data, dispatch] = useReducer(reducer, initialData);
   const [availableTimes, setAvailableTimes] = useState([]);
 
@@ -37,7 +41,7 @@ const BookingForm = ({ availableTimesPromise, dispatchTime }) => {
 
   const submit = (event) => {
     event.preventDefault();
-    dispatchTime({});
+    submitForm(data);
     console.log(data);
   };
 

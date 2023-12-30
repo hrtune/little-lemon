@@ -3,7 +3,8 @@ import Footer from "./Footer";
 import Headings from "./Headings";
 import BookingForm from "./BookingForm";
 import { useReducer } from "react";
-import { fetchAPI, dateAPI } from "../mockAPI";
+import { submitAPI, fetchAPI, dateAPI } from "../mockAPI";
+import { useNavigate } from "react-router-dom";
 
 export const updateTimes = (state, action) => {
   return fetchAPI(dateAPI(action.date));
@@ -14,11 +15,19 @@ export const initializeTime = () => {
 };
 
 const BookingPage = () => {
+  const navigate = useNavigate();
   const [availableTimesPromise, dispatchTime] = useReducer(
     updateTimes,
     null,
     initializeTime
   );
+
+  const submitForm = async (data) => {
+    const result = await submitAPI(data);
+    if (result === true) {
+      navigate("/book-a-table/confirmed");
+    }
+  };
 
   return (
     <>
@@ -26,6 +35,7 @@ const BookingPage = () => {
       <BookingForm
         availableTimesPromise={availableTimesPromise}
         dispatchTime={dispatchTime}
+        submitForm={submitForm}
       />
       <About />
       <Footer />
