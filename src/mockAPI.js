@@ -50,4 +50,11 @@ const submitAPI = (formData) => {
   });
 };
 
-export { fetchAPI, submitAPI };
+const dateAPI = () => {
+  const availableDates = Object.keys(availableTimesByDate);
+  const n = availableDates.length;
+  const i = Math.trunc(Math.random() * n);
+  return availableDates[i];
+};
+
+export { fetchAPI, submitAPI, dateAPI };

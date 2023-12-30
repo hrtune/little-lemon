@@ -2,21 +2,23 @@ import About from "./About";
 import Footer from "./Footer";
 import Headings from "./Headings";
 import BookingForm from "./BookingForm";
-import { useReducer } from "react";
-
-export const initializeTimes = () => {
-  return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-};
+import { useEffect, useReducer } from "react";
+import useInitializeTime from "../useInitializeTime";
 
 export const updateTimes = (state, action) => {
+  if (action.type === "INIT") {
+    return action.value;
+  }
   return state;
 };
 
 const BookingPage = () => {
-  const [availableTimes, dispatchTime] = useReducer(
-    updateTimes,
-    initializeTimes()
-  );
+  const initializeTime = useInitializeTime();
+  const [availableTimes, dispatchTime] = useReducer(updateTimes, []);
+
+  useEffect(() => {
+    dispatchTime({ type: "INIT", value: initializeTime() });
+  }, [initializeTime]);
 
   return (
     <>
