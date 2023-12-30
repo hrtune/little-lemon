@@ -53,7 +53,9 @@ const submitAPI = (formData) => {
 const dateAPI = () => {
   const availableDates = Object.keys(availableTimesByDate);
   const n = availableDates.length;
-  const i = Math.trunc(Math.random() * n);
+  // const i = Math.trunc(Math.random() * n);
+  const date = new Date();
+  const i = date.getDate() % n;
   return availableDates[i];
 };
 
