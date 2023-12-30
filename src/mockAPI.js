@@ -50,13 +50,20 @@ const submitAPI = (formData) => {
   });
 };
 
-const dateAPI = () => {
+const dateAPI = (date = "") => {
   const availableDates = Object.keys(availableTimesByDate);
   const n = availableDates.length;
-  // const i = Math.trunc(Math.random() * n);
-  const date = new Date();
-  const i = date.getDate() % n;
-  return availableDates[i];
+  if (date === "") {
+    const today = new Date();
+    const i = today.getDate() % n;
+    return availableDates[i];
+  } else if (availableDates.includes(date)) {
+    return date;
+  } else {
+    const dd = Number(date.slice(-2));
+    const i = dd % n;
+    return availableDates[i];
+  }
 };
 
 export { fetchAPI, submitAPI, dateAPI };

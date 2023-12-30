@@ -1,6 +1,7 @@
-import { useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
+import { dateAPI } from "../mockAPI";
 const initialData = {
-  date: "",
+  date: dateAPI(),
   time: "17:00",
   guests: "1",
   occasion: "Birthday",
@@ -11,8 +12,13 @@ const reducer = (state, action) => {
   newState[action.name] = action.value;
   return newState;
 };
-const BookingForm = ({ availableTimes, dispatchTime }) => {
+const BookingForm = ({ availableTimesPromise, dispatchTime }) => {
   const [data, dispatch] = useReducer(reducer, initialData);
+  const [availableTimes, setAvailableTimes] = useState([]);
+
+  useEffect(() => {
+    availableTimesPromise.then((times) => setAvailableTimes(times));
+  }, [availableTimesPromise]);
 
   const formStyle = {
     backgroundColor: "grey",
@@ -39,7 +45,10 @@ const BookingForm = ({ availableTimes, dispatchTime }) => {
           name="date"
           id="res-date"
           value={data.date}
-          onChange={(e) => dispatch({ name: "date", value: e.target.value })}
+          onChange={async (e) => {
+            dispatch({ name: "date", value: e.target.value });
+            await dispatchTime({ date: e.target.value });
+          }}
         />
       </section>
       <section>

@@ -2,29 +2,29 @@ import About from "./About";
 import Footer from "./Footer";
 import Headings from "./Headings";
 import BookingForm from "./BookingForm";
-import { useEffect, useReducer } from "react";
-import useInitializeTime from "../useInitializeTime";
+import { useReducer } from "react";
+import { fetchAPI, dateAPI } from "../mockAPI";
 
 export const updateTimes = (state, action) => {
-  if (action.type === "INIT") {
-    return action.value;
-  }
-  return state;
+  return fetchAPI(dateAPI(action.date));
+};
+
+export const initializeTime = () => {
+  return fetchAPI(dateAPI());
 };
 
 const BookingPage = () => {
-  const initializeTime = useInitializeTime();
-  const [availableTimes, dispatchTime] = useReducer(updateTimes, []);
-
-  useEffect(() => {
-    dispatchTime({ type: "INIT", value: initializeTime() });
-  }, [initializeTime]);
+  const [availableTimesPromise, dispatchTime] = useReducer(
+    updateTimes,
+    null,
+    initializeTime
+  );
 
   return (
     <>
       <Headings />
       <BookingForm
-        availableTimes={availableTimes}
+        availableTimesPromise={availableTimesPromise}
         dispatchTime={dispatchTime}
       />
       <About />
