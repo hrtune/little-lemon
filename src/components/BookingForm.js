@@ -1,5 +1,6 @@
 import { useEffect, useReducer, useState } from "react";
 import { dateAPI } from "../mockAPI";
+import ui from "../ui";
 const initialData = {
   date: dateAPI(),
   time: "17:00",
@@ -25,7 +26,7 @@ const BookingForm = ({ availableTimesPromise, dispatchTime }) => {
   }, [availableTimes]);
 
   const formStyle = {
-    backgroundColor: "grey",
+    backgroundColor: ui.color.lightGreen,
     height: "500px",
     display: "flex",
     flexDirection: "column",

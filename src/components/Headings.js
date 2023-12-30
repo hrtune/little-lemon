@@ -21,7 +21,7 @@ const Headings = () => {
             Book a table
           </h1>
           <h2 style={{ color: ui.color.white }}>
-            Please, fill in following forms to order.
+            Please, fill in following forms to book a table.
           </h2>
         </header>
       </div>
