@@ -20,6 +20,7 @@ const ui = {
   },
   style: {
     borderRadius: "16px",
+    sideMargin: "20vw",
   },
 };
 

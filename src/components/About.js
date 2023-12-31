@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section
       style={{
-        margin: "50px 290px",
+        margin: `50px ${ui.style.sideMargin}`,
         display: "flex",
         justifyContent: "space-between",
       }}

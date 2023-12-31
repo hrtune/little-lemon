@@ -3,7 +3,7 @@ import ui from "../ui";
 const Headings = () => {
   const containerStyle = {
     height: "250px",
-    margin: "0 290px",
+    margin: `0 ${ui.style.sideMargin}`,
     padding: "20px 0",
   };
 

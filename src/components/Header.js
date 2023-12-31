@@ -1,8 +1,9 @@
 import Nav from "./Nav";
 import logo from "../assets/logo.svg";
+import ui from "../ui";
 const Header = () => {
   const headerStyle = {
-    margin: "12px 290px",
+    margin: `12px ${ui.style.sideMargin}`,
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-between",

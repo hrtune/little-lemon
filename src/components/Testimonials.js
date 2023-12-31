@@ -40,7 +40,7 @@ const Testimonials = () => {
   ];
 
   const containerStyle = {
-    margin: "100px 290px",
+    margin: `100px ${ui.style.sideMargin}`,
   };
 
   const cardsStyle = {

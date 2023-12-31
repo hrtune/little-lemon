@@ -43,7 +43,7 @@ const Footer = () => {
     <footer style={{ backgroundColor: ui.color.green, padding: "40px 0" }}>
       <section
         style={{
-          margin: "0 290px",
+          margin: `0 ${ui.style.sideMargin}`,
           display: "flex",
           justifyContent: "space-between",
           alignItems: "flex-start",

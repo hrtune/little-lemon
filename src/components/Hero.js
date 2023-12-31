@@ -8,9 +8,9 @@ const Hero = () => {
   };
   const containerStyle = {
     height: "350px",
-    margin: "0 290px",
+    margin: `0 ${ui.style.sideMargin}`,
     display: "flex",
-    flexWrap: "wrap",
+    flexWrap: "no-wrap",
     justifyContent: "space-between",
   };
   const buttonStyle = {
@@ -48,7 +48,7 @@ const Hero = () => {
           </header>
           <section
             style={{
-              width: "350px",
+              width: "30vw",
               fontSize: ui.fontSize.leadText,
               color: ui.color.white,
             }}
@@ -65,7 +65,10 @@ const Hero = () => {
         <aside>
           <img
             style={{
-              width: "320px",
+              float: "right",
+              maxWidth: "50%",
+              height: "auto",
+              width: "auto",
               margin: "20px 0 0 0",
               borderRadius: "16px",
             }}

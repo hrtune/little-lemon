@@ -45,7 +45,7 @@ const Highlights = () => {
     },
   ];
   const hlStyle = {
-    margin: "250px 290px 0",
+    margin: `250px ${ui.style.sideMargin} 0`,
     display: "flex",
     flexDirection: "column",
   };
