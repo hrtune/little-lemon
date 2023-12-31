@@ -4,7 +4,7 @@ import ui from "../ui";
 const initialData = {
   date: dateAPI(),
   time: "17:00",
-  guests: "1",
+  guests: "0",
   occasion: "Birthday",
 };
 const reducer = (state, action) => {
@@ -45,14 +45,19 @@ const BookingForm = ({ availableTimesPromise, dispatchTime, submitForm }) => {
     console.log(data);
   };
 
+  const isValid = () => {
+    return !(data.guests < 1 || data.guests > 10);
+  };
+
   return (
     <form style={formStyle} onSubmit={submit}>
       <section>
-        <label htmlFor="date">Choose date:</label>
+        <label htmlFor="date">Choose date: </label>
         <input
           type="date"
           name="date"
           id="res-date"
+          required
           value={data.date}
           onChange={async (e) => {
             dispatch({ name: "date", value: e.target.value });
@@ -61,11 +66,12 @@ const BookingForm = ({ availableTimesPromise, dispatchTime, submitForm }) => {
         />
       </section>
       <section>
-        <label htmlFor="time">Choose time:</label>
+        <label htmlFor="res-time">Choose time: </label>
         <select
           name="time"
-          id="res-time "
+          id="res-time"
           value={data.time}
+          required
           onChange={(e) => dispatch({ name: "time", value: e.target.value })}
         >
           {availableTimes.map((t) => (
@@ -74,24 +80,27 @@ const BookingForm = ({ availableTimesPromise, dispatchTime, submitForm }) => {
         </select>
       </section>
       <section>
-        <label htmlFor="guests">Number of guests:</label>
+        <label htmlFor="res-guests">Number of guests: </label>
         <input
           type="number"
           name="guests"
-          placeholder="1"
           min="1"
           max="10"
           id="res-guests"
           value={data.guests}
-          onChange={(e) => dispatch({ name: "guests", value: e.target.value })}
+          required
+          onChange={(e) => {
+            dispatch({ name: "guests", value: e.target.value });
+          }}
         />
       </section>
       <section>
-        <label htmlFor="occasion">Occasion:</label>
+        <label htmlFor="res-occasion">Occasion: </label>
         <select
           name="occasion"
           id="res-occasion"
           value={data.occasion}
+          required
           onChange={(e) =>
             dispatch({ name: "occasion", value: e.target.value })
           }
@@ -100,7 +109,9 @@ const BookingForm = ({ availableTimesPromise, dispatchTime, submitForm }) => {
           <option>Anniversary</option>
         </select>
       </section>
-      <button type="submit">Make Your Reservation</button>
+      <button type="submit" disabled={isValid() ? "" : "disabled"}>
+        Make Your Reservation
+      </button>
     </form>
   );
 };
