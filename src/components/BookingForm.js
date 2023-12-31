@@ -109,7 +109,11 @@ const BookingForm = ({ availableTimesPromise, dispatchTime, submitForm }) => {
           <option>Anniversary</option>
         </select>
       </section>
-      <button type="submit" disabled={isValid() ? "" : "disabled"}>
+      <button
+        alia-label="Submit Button"
+        type="submit"
+        disabled={isValid() ? "" : "disabled"}
+      >
         Make Your Reservation
       </button>
     </form>

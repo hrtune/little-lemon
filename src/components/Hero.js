@@ -58,7 +58,9 @@ const Hero = () => {
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
             <Link to="/book-a-table">
-              <button style={buttonStyle}>Reserve a Table</button>
+              <button aria-label="On Click" style={buttonStyle}>
+                Reserve a Table
+              </button>
             </Link>
           </section>
         </section>
